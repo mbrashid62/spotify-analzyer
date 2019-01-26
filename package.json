@@ -9,7 +9,7 @@
     "clean": "rm -rf dist",
     "lint": "eslint src/**/*.js src/**/*.jsx"
   },
-  "hustky": {
+  "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
     }
