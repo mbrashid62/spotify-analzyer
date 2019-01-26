@@ -7,8 +7,12 @@
     "start": "webpack-dev-server --mode development --hot-reloading",
     "build": "webpack --mode production",
     "clean": "rm -rf dist",
-    "lint": "eslint src/**/*.js src/**/*.jsx",
-    "precommit": "lint"
+    "lint": "eslint src/**/*.js src/**/*.jsx"
+  },
+  "hustky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "author": "Bill Rashid",
   "license": "MIT",
