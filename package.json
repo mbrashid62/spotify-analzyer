@@ -2,16 +2,19 @@
   "name": "spotify-analyzer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "client.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --hot-reloading --open",
+    "start": "webpack-dev-server --mode development --hot-reloading",
     "build": "webpack --mode production"
   },
   "author": "Bill Rashid",
   "license": "MIT",
   "dependencies": {
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
