@@ -5,7 +5,8 @@
   "main": "client.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --hot-reloading",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "clean": "rm -rf dist"
   },
   "author": "Bill Rashid",
   "license": "MIT",
