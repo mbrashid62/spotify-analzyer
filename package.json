@@ -9,7 +9,7 @@
     "build": "babel-node scripts/prod/build.js",
     "postbuild": "babel-node scripts/prod/distServer.js",
     "prod": "npm run prebuild && npm run build && npm run postbuild",
-    "start": "npm run postbuild",
+    "start": "node scripts/prod/build.js",
     "clean": "rm -rf dist",
     "lint": "eslint src/**/*.js src/**/*.jsx"
   },
@@ -55,6 +55,6 @@
   },
   "engines": {
     "node": "6.9.2",
-    "npm": "3.10.9"
+    "npm": "6.5.0"
   }
 }
