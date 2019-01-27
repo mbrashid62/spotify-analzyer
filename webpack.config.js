@@ -19,8 +19,12 @@ module.exports = {
             plugins: ['@babel/plugin-proposal-class-properties']
           }
         }
-      }
-    ]
+      },
+      {
+        test: /\.(scss|css)$/,
+        loaders: ['style-loader', 'css-loader', 'sass-loader']
+      },
+    ],
   },
   resolve: {
     extensions: ['.js', '.jsx']
