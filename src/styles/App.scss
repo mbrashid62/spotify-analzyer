@@ -10,7 +10,7 @@ $light-gray-border: 1px solid rgba(0, 0, 0, 0.1);
 
 $brand-primary: #144E2D;
 $background-gray: #EEE;
-$brakground-dark-gray: #FFF;
+$background-dark-gray: #FFF;
 $color-off: #4D4D4D;
 
 body {
@@ -22,8 +22,7 @@ body {
   font-size: 14px;
   text-align: center;
   color: $brand-primary;
-  background-color: $background-gray;
+  background-color: #110e17;
   height: 100vh;
   width: 100vw;
 }
-

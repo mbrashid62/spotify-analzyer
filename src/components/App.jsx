@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
+import HomeCallout from './HomeCallout';
+import LandingPrompt from './LandingPrompt';
+import Profile from "./Profile";
+import Footer from './Footer';
 import '../styles/App.scss';
 
 export class App extends Component {
-  state = {
-    msg: 'Hello World',
-  };
-
   static displayName = 'src/components/App';
 
   render() {
-    const { msg } = this.state;
     return (
       <div className="app">
-        <h1>Spotify Analyzer</h1>
-        <h6>{msg}</h6>
+        <HomeCallout />
+        <Profile />
+        <LandingPrompt />
       </div>
     );
   }

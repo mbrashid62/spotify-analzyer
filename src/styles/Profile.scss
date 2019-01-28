@@ -1,0 +1,23 @@
+.profile-container {
+  position: absolute;
+  right: 60px;
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .message {
+    padding: 10px;
+    color: #FFF;
+
+    .name {
+      font-weight: 600;
+    }
+  }
+}

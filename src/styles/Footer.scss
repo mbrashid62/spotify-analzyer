@@ -1,0 +1,13 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  border-top: 1px solid #144E2D;;
+  background-color: #DDD;
+  font-family: 'Raleway', sans-serif;
+  color: #144E2D;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}

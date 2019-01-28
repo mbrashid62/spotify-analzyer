@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+.home-callout-container {
+  position: absolute;
+  left: 25px;
+  display: flex;
+  align-items: baseline;
+
+  .spinner {
+    position: relative;
+    top: 3px;
+  }
+
+  p {
+    padding: 0 10px;
+    letter-spacing: 0.05em;
+    font-family: 'Pacifico', sans-serif;
+    font-size: 25px;
+    color: #FFF;
+  }
+}

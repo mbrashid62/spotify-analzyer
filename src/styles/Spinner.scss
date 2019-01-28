@@ -1,0 +1,95 @@
+$duration: 5s;
+
+@keyframes spin {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glow-blue {
+  30% {
+    background: blue;
+  }
+  60%{
+    background: #DDD;
+  }
+}
+
+@keyframes glow-pink {
+  30%{
+    background: pink;
+  }
+  60%{
+    background: #DDD;
+  }
+}
+
+@keyframes glow-yellow {
+  30%{
+    background: yellow;
+  }
+  60%{
+    background: #DDD;
+  }
+}
+
+
+@mixin glowColor($color) {
+  @keyframes glow-blue {
+    30% {
+      background: $color;
+    }
+    60% {
+      background: #DDD;
+    }
+  }
+}
+.spinner {
+  padding: 5px;
+
+  &.is-spinning {
+    animation: infinite $duration linear spin;
+  }
+
+  &.is-glowing {
+    span {
+      animation: infinite $duration linear glow-blue;
+
+      &:nth-of-type(2) {
+        animation: infinite $duration linear glow-pink;
+      }
+
+      &:nth-of-type(3) {
+        animation: infinite $duration linear glow-yellow;
+      }
+    }
+  }
+
+  .dot {
+    background: #004993;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+
+    &:nth-of-type(2) {
+      transform: translate3D(0, -18px,0);
+      background: pink;
+    }
+
+    &:nth-of-type(3) {
+      background: yellow;
+    }
+  }
+}
