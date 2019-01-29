@@ -3,7 +3,7 @@ import '../styles/LandingContainer.scss';
 
 const LandingPrompt = () => (
   <div className="landing-container">
-    <p>This is a tool for analyzing your Spotify Playlists.</p>
+    <button className="action-btn">Connect to Spotify</button>
   </div>
 );
 
