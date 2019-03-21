@@ -33,6 +33,7 @@
     "compression": "^1.7.3",
     "express": "^4.16.4",
     "history": "^4.7.2",
+    "open": "0.0.5",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",

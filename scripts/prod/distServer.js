@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 const express = require('express');
 const path  = require('path');
+const open = require('open');
 const compression = require('compression');
 
 const port = 8080;
@@ -17,6 +18,6 @@ app.listen(process.env.PORT || port, function(err) {
   if (err) {
     console.log(err);
   } else {
-    console.log(`App is running on: http://localhost:${port}`);
+    open(`http://localhost:${port}`);
   }
 });
