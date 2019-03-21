@@ -7,7 +7,6 @@
     "dev": "webpack-dev-server --config webpack.dev.config.js --hot-reloading",
     "prebuild": "npm run clean",
     "build": "babel-node scripts/prod/build.js",
-    "postbuild": "npm run start",
     "prod": "npm run prebuild && npm run build && npm run postbuild",
     "start": "node scripts/prod/distServer.js",
     "ship": "git add . && git commit -m 'shipping' && git push heroku master",
