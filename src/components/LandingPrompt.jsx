@@ -52,7 +52,11 @@ class LandingPrompt extends Component {
     // spotifyApi.getUser()
     return (
       <div className="landing-container">
-        <button className="action-btn" onClick={this.onClick}>Connect to Spotify</button>
+        {!this.state.isAccessTokenSet ? (
+          <button className="action-btn" onClick={this.onClick}>Connect to Spotify</button>
+        ) : (
+          <Welcome />
+        )}
       </div>
     );
   }
