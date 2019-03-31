@@ -1,23 +1,14 @@
-import React, {
-  useState,
-  useEffect,
-} from 'react';
+import React from 'react';
+
+import PulsatingArrows from '../components/PulsatingArrows';
+import '../styles/Welcome.scss';
 
 const Welcome = () => {
-  const [name, setName] = useState('');
-  const [spotifyId, setSpotifyId] = useState('');
-
-  useEffect(() => {
-    const api = window.spotifyApi;
-    api.getMe()
-      .then((result) => {
-        setName(result.body.display_name);
-        setSpotifyId(result.body.id);
-      });
-  });
-
   return (
-    <h1>Welcome, {name}</h1>
+    <div className="welcome-container">
+      <h1>Let's analyze your Spotify Playlists</h1>
+      <PulsatingArrows />
+    </div>
   );
 };
 

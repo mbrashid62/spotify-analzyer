@@ -1,0 +1,57 @@
+.pulsating-arrows-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  height: 50px;
+
+  .arrow {
+    position: absolute;
+    top: 70%;
+    left: 49%;
+    width: 30px;
+    height: 25px;
+    animation: arrow-movement 2000ms 0s ease-in-out infinite;
+
+    &::before {
+      transform: rotate(45deg) translateX(-23%);
+      transform-origin: top left;
+    }
+
+    &::after {
+      transform: rotate(-45deg) translateX(20%);
+      transform-origin: top right;
+    }
+
+    &::before,
+    &::after {
+      background: #FFF;
+      content: '';
+      display: block;
+      height: 3px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30px;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      &::before,
+      &::after {
+        background: #DDD;
+      }
+    }
+  }
+}
+
+@keyframes arrow-movement {
+  50% {
+    top: 75%;
+  }
+
+  100% {
+    top: 70%;
+  }
+}
