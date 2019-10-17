@@ -1,0 +1,140 @@
+body.dialogue-box-overlay {
+    overflow-y: hidden;
+  
+    &::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.5);
+      animation: 0.25s backgroundFade;
+  
+      @keyframes backgroundFade {
+        0% {
+          background-color: rgba(0, 0, 0, 0);
+        }
+  
+        100% {
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+  }
+  
+  .dialogue-box-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    font-family: 'Sarabun', sans-serif;
+    transform: translate(-50%, -50%) scale(0);
+    width: 343px;
+    background-color: #FFF;
+    text-align: center;
+    border-radius: 2px;
+    -webkit-font-smoothing: antialiased; //sass-lint:disable-line no-vendor-prefixes
+    opacity: 0;
+  
+    // animation
+    &.open {
+      z-index: 600;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+      transition: 0.5s transform, 0.25s opacity;
+    }
+  
+    &.closed {
+      animation: 0.25s fadeOutAndResetZ-Index 1;
+      transform: translate(-50%, -50%) scale(0);
+      transition: 0.5s transform;
+  
+      @keyframes fadeOutAndResetZ-Index {
+        0% {
+          z-index: 600;
+          opacity: 1;
+        }
+  
+        99% {
+          opacity: 0;
+        }
+  
+        100% {
+          z-index: -1;
+        }
+      }
+    }
+  
+    .svg-wrapper {
+      padding: 5px 0;
+    }
+  
+    .heading {
+      margin: 10px 0;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: gray;
+    }
+  
+    .subheading {
+      padding: 0 16px;
+      font-size: 16px;
+      color: gray;
+    }
+  
+    .action-section {
+      border-top: 1px solid gray;
+  
+      p {
+        margin: 0;
+        padding: 14px 0;
+        color: gray;
+        font-weight: 600;
+      }
+  
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  
+    .hide-icon-wrapper {
+      display: inline-flex;
+      width: 20px;
+      position: relative;
+      top: 10px;
+      left: 42%;
+  
+      .hide-icon {
+        display: inherit;
+  
+        &::before,
+        &::after {
+          content: '';
+          height: 16px;
+          position: relative;
+          top: 2px;
+          border: 1px solid gray;
+        }
+  
+        &::before {
+          left: 10px;
+          transform: rotate(45deg);
+        }
+  
+        &::after {
+          left: 8px;
+          transform: rotate(-45deg);
+        }
+      }
+  
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  
+    // @media screen and (max-width: $screen-xs-max) {
+    //   width: 75vw;
+    // }
+  }
