@@ -3,8 +3,9 @@ import React, {
   useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const Dashboard = (props) => {
+const Dashboard = ({}) => {
   return (
     <div>
       <h1>Hello World</h1>
@@ -16,4 +17,8 @@ Dashboard.propTypes = {
 
 };
 
-export default Dashboard;
+export default connect(() => ({
+
+}), {
+
+})(Dashboard);
