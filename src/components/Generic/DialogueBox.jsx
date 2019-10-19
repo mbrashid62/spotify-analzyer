@@ -1,4 +1,7 @@
-import React from 'react';
+import React, {
+  useState,
+  useEffect,
+} from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -13,8 +16,14 @@ const DialogueBox = ({
   onAction,
   onClose,
 }) => {
-  const el = document.getElementById('root');
-  const IconPassed = icon || null;
+  const [IconPassed, setIconPassed] = useState();
+  const [el, setEl] = useState();
+  useEffect(() => {
+    if (icon) {
+      setIconPassed(icon);
+    }
+    setTimeout(() => setEl(document.getElementById('root')), 250);
+  }, [icon]);
   if (el) {
     return ReactDOM.createPortal(
       <div className={cn('dialogue-box-container', isOpen ? 'open' : 'closed')}>

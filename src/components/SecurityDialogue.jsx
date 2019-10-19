@@ -26,7 +26,7 @@ const SecurityDialogue = ({
         actionText="Okay"
         onAction={() => setShowDialogue(false)}
         onClose={() => setShowDialogue(false)}
-    />
+      />
   );
 };
 
