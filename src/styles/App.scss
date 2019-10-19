@@ -26,3 +26,8 @@ body {
   height: 100vh;
   width: 100vw;
 }
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
+}

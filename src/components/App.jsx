@@ -11,8 +11,10 @@ export class App extends Component {
   render() {
     return (
       <div className="app" id="root">
-        <HomeCallout />
-        <Profile />
+        <div className="top-container">
+          <HomeCallout />
+          <Profile />
+        </div>
         <LandingPrompt />
       </div>
     );

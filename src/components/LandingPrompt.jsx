@@ -4,7 +4,7 @@ import '../styles/LandingContainer.scss';
 import { apiCreds } from "../configs/spotify-auth";
 
 import DialogueBox from './Generic/DialogueBox';
-import Welcome from './Welcome';
+import Dashboard from './Dashboard/Dashboard';
 
 const getAuthUrl = (credentials) => `https://accounts.spotify.com/authorize?response_type=token&client_id=${encodeURIComponent(credentials.clientId)}&scope=${credentials.scope}&redirect_uri=${encodeURIComponent(credentials.redirect_uri)}&state=${encodeURIComponent(credentials.state)}`;
 
@@ -61,7 +61,7 @@ class LandingPrompt extends Component {
         {!this.state.isAccessTokenSet ? (
           <button className="action-btn" onClick={this.onConnectClick}>Connect to Spotify</button>
         ) : (
-          <Welcome />
+          <Dashboard />
         )}
         <DialogueBox
           isOpen={this.state.showDialogue}
