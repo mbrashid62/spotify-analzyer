@@ -6,6 +6,11 @@
 }
 
 .landing-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   .action-btn {
     padding: 20px 50px;
     text-align: center;
@@ -27,6 +32,5 @@
     &:focus {
       outline: 0;
     }
-
   }
 }
