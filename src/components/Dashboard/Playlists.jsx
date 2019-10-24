@@ -1,23 +1,92 @@
 import React, {
   useState,
   useEffect,
+  useCallback,
 } from 'react';
 import PropTypes from 'prop-types';
-import '../../styles/Dashboard/Playlists.scss';
+import cn from 'classnames';
+import {
+  isEmpty,
+  chunk,
+} from 'lodash';
+import '../../styles/Playlists.scss';
+import Pagination from '../Generic/Pagination/Pagination';
+import {
+  PAGINATION_CONTROLS,
+  PLAYLISTS,
+} from '../Generic/Pagination/config';
 
+const { LIMIT } = PLAYLISTS;
+
+function getChunkedItems(currentPage, items = []) {
+  return isEmpty(items) ? [] : chunk(items, LIMIT)[currentPage - 1];
+}
 const Playlists = ({ playlists }) => {
-  const [] = useState();
-  useEffect(() => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [chunkedItems, setChunkedItems] = useState([]);
+  const [totalPages] = useState(Math.ceil(playlists.length / LIMIT));
+  const [selectedPlaylistIndex, setSelectedPlaylistIndex] = useState(null);
 
+  useEffect(() => {
+    const chunked = getChunkedItems(currentPage, playlists);
+    setChunkedItems(chunked);
   }, []);
+
+  const onPaginationClick = useCallback((e, page) => {
+    e.preventDefault();
+    let newPage = page;
+
+    if (currentPage !== newPage) {
+      if (newPage === PAGINATION_CONTROLS.NEXT) {
+        newPage = currentPage + 1;
+      } else if (newPage === PAGINATION_CONTROLS.PREVIOUS) {
+        newPage = currentPage - 1;
+      }
+    }
+
+    setCurrentPage(newPage);
+    setChunkedItems(getChunkedItems(newPage, playlists));
+  }, []);
+
+  const onPlaylistClick = (e, i) => {
+    if (selectedPlaylistIndex === i) {
+      setSelectedPlaylistIndex(null);
+    } else {
+      setSelectedPlaylistIndex(i);
+    }
+  };
+
   return (
-    <div className="playlists-container">
+    <div className="left-column">
       <h2 className="header">Your Spotify Playlists</h2>
-      {playlists.map((p, i) => {
-        return <span className="playlist">{i + 1}. {p.name}</span>;
-      })}
+      <div className="playlists-container">
+        {chunkedItems.map((p, i) => {
+          const index = (currentPage - 1) * LIMIT + i;
+          return (
+            <div
+              key={i}
+              className={cn('playlist', {
+                selected: index === selectedPlaylistIndex,
+              })}
+              onClick={(e) => onPlaylistClick(e, index)}
+            >
+              <span className="name">{p.name}</span>
+            </div>
+          );
+        })}
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          showEllipses={false}
+          handleClick={onPaginationClick}
+        />
+      </div>
     </div>
   );
+};
+
+Playlists.defaultProps = {
+  playlists: [],
 };
 
 Playlists.propTypes = {
