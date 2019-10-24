@@ -1,7 +1,6 @@
 import React, {
   useState,
   useEffect,
-  useCallback,
 } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -19,7 +18,10 @@ import {
 const { LIMIT } = PLAYLISTS;
 
 function getChunkedItems(currentPage, items = []) {
-  return isEmpty(items) ? [] : chunk(items, LIMIT)[currentPage - 1];
+  if (isEmpty(items)) {
+    return [];
+  }
+  return chunk(items, LIMIT)[currentPage - 1];
 }
 const Playlists = ({ playlists }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -32,7 +34,7 @@ const Playlists = ({ playlists }) => {
     setChunkedItems(chunked);
   }, []);
 
-  const onPaginationClick = useCallback((e, page) => {
+  const onPaginationClick = (e, page) => {
     e.preventDefault();
     let newPage = page;
 
@@ -46,7 +48,7 @@ const Playlists = ({ playlists }) => {
 
     setCurrentPage(newPage);
     setChunkedItems(getChunkedItems(newPage, playlists));
-  }, []);
+  };
 
   const onPlaylistClick = (e, i) => {
     if (selectedPlaylistIndex === i) {

@@ -139,15 +139,15 @@ export default class PaginationView extends React.Component {
         {(this.props.currentPage === 1)
           ? (
             <li className="pagination-left">
-              <a className={cn(this.props.leftIcon, 'disabled')} />
+              <a className={cn(this.props.leftIcon, 'disabled')}>Prev</a>
             </li>
           ) : (
             <li className="pagination-left">
               {this.renderPaginationLink({
                 ariaLabel: 'Previous',
                 pageNum: this.props.prevPage,
-                content: <span aria-hidden="true"><i className={this.props.leftIcon} /></span>,
-                clickIndicator: PAGINATION_CONTROLS.PREVIOUS
+                content: <span aria-hidden="true">Prev</span>,
+                clickIndicator: PAGINATION_CONTROLS.PREVIOUS,
               })}
             </li>
           )}
@@ -176,14 +176,14 @@ export default class PaginationView extends React.Component {
         {(this.props.currentPage === this.props.totalPages)
           ? (
             <li className="pagination-right">
-              <a className={cn(this.props.rightIcon, 'disabled')}/>
+              <a className={cn(this.props.rightIcon, 'disabled')}>Next</a>
             </li>
           ) : (
             <li className="pagination-right">
               {this.renderPaginationLink({
                 ariaLabel: 'Next',
                 pageNum: this.props.nextPage,
-                content: (<span aria-hidden="true"><i className={this.props.rightIcon} /></span>),
+                content: (<span aria-hidden="true">Next</span>),
                 clickIndicator: PAGINATION_CONTROLS.NEXT
               })}
             </li>

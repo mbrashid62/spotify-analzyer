@@ -16,13 +16,9 @@
       }
     }
 
-    &:hover {
-      cursor: pointer;
-
-      a {
-        background-color: #110e17;
-        color: yellow;
-      }
+    .disabled {
+      color: #666666 !important;
+      pointer-events: none;
     }
 
     &.active {
@@ -41,6 +37,13 @@
     &.divider {
       border: none;
     }
+
+    &:hover {
+      cursor: pointer;
+      a {
+        color: pink;
+      }
+    }
   }
 }
 
@@ -54,7 +57,7 @@
     overflow-y: auto;
   }
 
-  @media screen and (max-width: 454px) {
+  @media screen and (max-width: 545px) {
     padding-left: 20px;
   }
 }
