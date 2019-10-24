@@ -8,21 +8,21 @@
 $light-gray-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 $light-gray-border: 1px solid rgba(0, 0, 0, 0.1);
 
-$brand-primary: #144E2D;
-$background-gray: #EEE;
-$background-dark-gray: #FFF;
-$color-off: #4D4D4D;
+$brand-primary: #110e17;
 
 body {
   margin: 0;
+  background-color: $brand-primary;
 }
 
 .app {
   font-family: 'Helvetica Neue', 'sans-serif';
   font-size: 14px;
   text-align: center;
-  color: $brand-primary;
-  background-color: #110e17;
-  height: 100vh;
-  width: 100vw;
+  color: #FFFFFF;
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
 }

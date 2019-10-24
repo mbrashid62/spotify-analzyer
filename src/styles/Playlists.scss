@@ -1,0 +1,63 @@
+.left-column {
+  display: flex;
+  margin: 25px 0;
+  flex-direction: column;
+  width: 20vw;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #FFF;
+  text-align: left;
+
+  .header {
+    font-family: 'Sarabun', sans-serif;
+    letter-spacing: 1.15px;
+    text-decoration: underline;
+  }
+
+  .playlists-container {
+    max-height: 600px;
+
+    .playlist {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      font-family: 'Raleway', sans-serif;
+      transition: 0.15s transform;
+
+      &.selected {
+        color: pink;
+        transform: translateX(10px);
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: pink;
+        transform: translateX(10px);
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100vw;
+    flex-direction: initial;
+
+    .playlists-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      display: flex;
+    }
+
+    .header {
+      margin: 0;
+      padding-right: 5px;
+      text-decoration: none;
+      border-right: 1px solid #FFFFFF;
+    }
+
+    .playlist {
+      max-height: 80px;
+      padding: 0 10px;
+    }
+  }
+}
